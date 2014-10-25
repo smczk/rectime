@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025090329) do
+ActiveRecord::Schema.define(version: 20141025123910) do
+
+  create_table "movements", force: true do |t|
+    t.integer  "user_id",                    null: false
+    t.boolean  "completed",  default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "records", force: true do |t|
     t.integer  "user_id"
