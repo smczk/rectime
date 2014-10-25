@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rectime</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+#  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<table>
+  <tr>
+    <td>id</td>
+    <td>user_id</td>
+    <td>start_time</td>
+    <td>status</td>
+  </tr>
+<% @movements.each do |movement| %>
+  <tr>    
+    <td><%= "#{movement.id}" %></td>
+    <td><%= "#{movement.user_id}" %></td>
+    <td><%= "#{movement.created_at}" %></td>
+    <td><%= "#{movement.completed}" %></td>
+  </tr>
+<% end %>
+</table>
+
+</body>
+</html>
