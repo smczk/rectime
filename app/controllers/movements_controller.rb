@@ -1,7 +1,8 @@
 class MovementsController < ApplicationController
 
   def show
-    @movements = Movement.all
+    @movements = Movement.latest5
+    @records = Record.all
   end
 
   def create

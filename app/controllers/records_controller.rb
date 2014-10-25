@@ -5,7 +5,7 @@ class RecordsController < ApplicationController
   end
 
   def create
-    Record.create!({ user_id: params[:user_id], point_id: params[:point_id], comment: params[:comment] })
+    Record.create!({ movement_id: params[:movement_id], point_id: params[:point_id], comment: params[:comment] })
     render nothing: true
   end
 
