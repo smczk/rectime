@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025123910) do
+ActiveRecord::Schema.define(version: 20141025130525) do
 
   create_table "movements", force: true do |t|
     t.integer  "user_id",                    null: false
@@ -21,11 +21,11 @@ ActiveRecord::Schema.define(version: 20141025123910) do
   end
 
   create_table "records", force: true do |t|
-    t.integer  "user_id"
     t.integer  "point_id"
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "movement_id"
   end
 
 end
