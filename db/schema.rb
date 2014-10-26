@@ -11,11 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025130525) do
+ActiveRecord::Schema.define(version: 20141026134210) do
 
   create_table "movements", force: true do |t|
     t.integer  "user_id",                    null: false
     t.boolean  "completed",  default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "points", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
