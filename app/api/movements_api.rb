@@ -14,5 +14,14 @@ class Movements_API < Grape::API
     get ':id' do
       Movement.find(param[:id])
     end
+
+    desc "create movement"
+    params do
+      requires :user_id, type: Integer
+    end
+
+    post do
+      Movement.create!({ user_id: params[:user_id] })
+    end
   end
 end
