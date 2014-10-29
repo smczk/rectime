@@ -8,11 +8,11 @@ class Movements_API < Grape::API
 
     desc "return a movement"
     params do
-      requires :id, type: Integer
+      requires :user_id, type: Integer
     end
 
-    get ':id' do
-      Movement.find(param[:id])
+    get ':user_id' do
+      Movement.where({ user_id: params[:user_id] })
     end
 
     desc "create movement"

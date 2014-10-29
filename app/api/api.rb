@@ -5,4 +5,5 @@ class API < Grape::API
   format :json
 
   mount Movements_API
+  mount Points_API
 end

@@ -1,4 +1,4 @@
 class Point < ActiveRecord::Base
-  validates :user_id,
-    uniqueness: { scope: [:extra_id] }
+  validates :extra_id,
+    uniqueness: { scope: [:user_id] }
 end
