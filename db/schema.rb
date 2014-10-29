@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026134210) do
+ActiveRecord::Schema.define(version: 20141029093055) do
 
   create_table "movements", force: true do |t|
     t.integer  "user_id",                    null: false
@@ -24,7 +24,11 @@ ActiveRecord::Schema.define(version: 20141026134210) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "extra_id"
+    t.integer  "user_id"
   end
+
+  add_index "points", ["user_id", "extra_id"], name: "index_points_on_user_id_and_extra_id", unique: true
 
   create_table "records", force: true do |t|
     t.integer  "point_id"
