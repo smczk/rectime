@@ -6,13 +6,18 @@ class Movements_API < Grape::API
       Movement.all
     end
 
-    desc "return a movement"
     params do
       requires :user_id, type: Integer
     end
-
+    desc "return a movement"
     get ':user_id' do
       Movement.where({ user_id: params[:user_id] })
+    end
+
+    namespace ":user_id" do
+      get 'latest' do
+        Movement.where({ user_id: params[:user_id], completed: false })
+      end
     end
 
     desc "create movement"
