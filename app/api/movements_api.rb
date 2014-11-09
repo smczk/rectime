@@ -6,6 +6,10 @@ class Movements_API < Grape::API
       Movement.all
     end
 
+    post ':id' do
+      Movement.update(params[:id],{ completed: true })
+    end
+
     params do
       requires :user_id, type: Integer
     end
