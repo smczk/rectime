@@ -7,32 +7,22 @@
 #  <%= csrf_meta_tags %>
 </head>
 <body>
-
-<table>
-  <tr>
-    <td>id</td>
-    <td>user_id</td>
-    <td>start_time</td>
-    <td>status</td>
-  </tr>
-<% @movements.each do |movement| %>
-  <tr>    
-    <td><%= "#{movement.id}" %></td>
-    <td><%= "#{movement.user_id}" %></td>
-    <td><%= "#{movement.created_at}" %></td>
-    <td><%= "#{movement.completed}" %></td>
-
-    <% @records.where(movement_id: movement.id).each do |record| %>
-      <tr>
-        <td><%= "#{record.id}" %></td>
-        <td><%= "#{record.point_id}" %></td>
-        <td><%= "#{record.comment}" %></td>
-        <td><%= "#{record.created_at}" %></td>
-      </tr>
-    <% end %>
-  </tr>
-<% end %>
-</table>
-
+<div id="wrapper">
+  <div id="movement-table">
+  <% @movements.each do |movement| %>
+    <p><%= "Started at #{movement.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S")}" %></p>
+      <div id="record">
+      <% @records.where(movement_id: movement.id).each do |record| %>
+        <p>
+          <%= "#{record.id}" %>
+          <%= "#{record.point_id}" %>
+          <%= "#{record.comment}" %>
+          <%= "#{record.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S")}" %>
+        </p>
+      <% end %>
+      </div>
+  <% end %>
+  </div>
+</div>
 </body>
 </html>
