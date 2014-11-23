@@ -1,8 +1,7 @@
 class MovementsController < ApplicationController
 
   def show
-    @movements = Movement.latest5
-    @records = Record.all
+    @movements = Movement.includes(record: :point).reverse_order
   end
 
   def create

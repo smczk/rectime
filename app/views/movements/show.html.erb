@@ -4,25 +4,30 @@
   <title>Rectime</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-#  <%= csrf_meta_tags %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="body">
 <div id="wrapper">
-  <div id="movement-table">
-  <% @movements.each do |movement| %>
-    <p><%= "Started at #{movement.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S")}" %></p>
-      <div id="record">
-      <% @records.where(movement_id: movement.id).each do |record| %>
-        <p>
+    <div id="main">
+      <div id="movement-table">
+      <% @movements.each do |movement| %>
+        <p><%= "Started at #{movement.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S")}" %></p>
+        <% movement.record.each do |record| %>
+        <div id="record">
+          <p>
           <%= "#{record.id}" %>
           <%= "#{record.point_id}" %>
+          <%= "#{record.point.name}" %>
           <%= "#{record.comment}" %>
           <%= "#{record.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S")}" %>
-        </p>
+          </p>
+        </div>
+        <% end %>
       <% end %>
       </div>
-  <% end %>
-  </div>
+    </div>
+</div>
 </div>
 </body>
 </html>

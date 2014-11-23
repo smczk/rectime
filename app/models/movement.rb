@@ -1,4 +1,6 @@
 class Movement < ActiveRecord::Base
+  belongs_to :user
+  has_many :record
 
   def self.latest5
     latest5 = Movement.all.sort_by do |movement|

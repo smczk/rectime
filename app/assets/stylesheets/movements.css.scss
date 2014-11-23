@@ -1,21 +1,24 @@
 // Place all the styles related to the movements controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  padding: 10px;
+  background-color: #dde;
+}
+
 #wrapper {
   margin: 0 auto;
-  background-color: #6cf;
+  #background-color: #6cf;
   width: 500px;
   height: 300px;
   text-align: center;
-  border: solid 1px #6cf;
-  border-radius: 1em;
+  #border: solid 1px #6cf;
 }
 
 #movement-table {
   background-color: #fff;
   padding: 10px;
   margin: 5px;
-  border-radius: 1em;
   p {
     text-align: left;
     border-bottom: solid thin;
@@ -23,7 +26,10 @@
 }
 
 #record {
+  background-color: #fdf;
+  padding: 10px;
   margin: 10px;
+  border-radius: 1em;
   p {
     text-align: left;
     border-bottom: none;
