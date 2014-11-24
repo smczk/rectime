@@ -17,16 +17,16 @@
     <div id="main">
       <% @movements.each do |movement| %>
       <div id="movement-table">
-        <p><%= "Started at #{movement.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d")}" %></p>
+        <p><%= "#{movement.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %a")}" %></p>
         <% movement.record.each do |record| %>
         <div id="record">
-          <p>
-          <%= "#{record.id}" %>
-          <%= "#{record.point_id}" %>
-          <%= "#{record.point.name}" %>
-          <%= "#{record.comment}" %>
-          <%= "#{record.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S")}" %>
-          </p>
+          <table>
+            <tr>
+              <td><%= "#{record.point.name}" %></td>
+              <td><%= "#{record.comment}" %></td>
+            </tr>
+          </table>
+          <p class="record-time"><%= "#{record.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %a %H:%M")}" %></p>
         </div>
         <% end %>
       </div>
@@ -34,6 +34,8 @@
     </div>
 
     <div id="footer">
+      <p>Copyright &copy; 2014 by smczk</p>
+      <p>Powered by Heroku</p>
     </div>
   </div>
 </div>
