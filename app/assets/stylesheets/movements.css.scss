@@ -2,8 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
   padding: 10px;
-  background-color: #dde;
+  background-color: #7cbc9a;
+}
+
+#header {
+  p {
+    font-size: 20px;
+  }
 }
 
 #wrapper {
@@ -16,9 +23,9 @@ body {
 }
 
 #movement-table {
-  background-color: #fff;
+  background-color: #e8e7e2;
   padding: 10px;
-  margin: 5px;
+  margin: 20px;
   p {
     text-align: left;
     border-bottom: solid thin;
@@ -26,7 +33,7 @@ body {
 }
 
 #record {
-  background-color: #fdf;
+  background-color: #b1e2d6;
   padding: 10px;
   margin: 10px;
   border-radius: 1em;

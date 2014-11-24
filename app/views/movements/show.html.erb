@@ -8,10 +8,15 @@
 </head>
 <body>
 <div id="body">
-<div id="wrapper">
+  <div id="wrapper">
+
+    <div id="header">
+      <h1>Your rectimes</h1>
+    </div>
+
     <div id="main">
-      <div id="movement-table">
       <% @movements.each do |movement| %>
+      <div id="movement-table">
         <p><%= "Started at #{movement.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S")}" %></p>
         <% movement.record.each do |record| %>
         <div id="record">
@@ -24,10 +29,13 @@
           </p>
         </div>
         <% end %>
-      <% end %>
       </div>
+      <% end %>
     </div>
-</div>
+
+    <div id="footer">
+    </div>
+  </div>
 </div>
 </body>
 </html>
