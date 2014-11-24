@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => 'movements#show'
   resource :movements
   resource :records
   resource :points

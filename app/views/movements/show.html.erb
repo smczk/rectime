@@ -17,7 +17,7 @@
     <div id="main">
       <% @movements.each do |movement| %>
       <div id="movement-table">
-        <p><%= "Started at #{movement.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S")}" %></p>
+        <p><%= "Started at #{movement.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d")}" %></p>
         <% movement.record.each do |record| %>
         <div id="record">
           <p>
