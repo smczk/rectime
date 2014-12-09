@@ -3,7 +3,7 @@ class Movements_API < Grape::API
     
     desc "return all movements"
     get do
-      Movement.all
+      Movement.where({ user_id: current_user })
     end
 
     post ':id' do

@@ -6,7 +6,6 @@ class API < Grape::API
   content_type :json, "application/json"
 
   before do
-    #User.where(email: params[:email], emcrypted_password: password_digest(params[:password]))
     error!("401 Unauthorized", 401) unless authenticated
   end
 
