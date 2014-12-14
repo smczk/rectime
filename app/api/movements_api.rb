@@ -1,9 +1,11 @@
 class Movements_API < Grape::API
+
   resource 'movements' do
     
     desc "return all movements"
     get do
       Movement.where({ user_id: current_user })
+        .as_json(include: { record: { include: { point: { only: :name }}, only: [:comment, :updated_at] }}) 
     end
 
     post ':id' do

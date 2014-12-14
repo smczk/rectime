@@ -43,5 +43,6 @@ group :production do
 end
 
 gem 'grape'
+gem 'grape-jbuilder'
 gem 'hashie_rails'
 gem 'devise'
