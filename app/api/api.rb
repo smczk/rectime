@@ -3,7 +3,7 @@ class API < Grape::API
   prefix 'api'
   version 'v1', :using => :path
   format :json
-  content_type :json, "application/json; charset=uft-8"
+  content_type :json, "application/json"
 
   before do
     error!("401 Unauthorized", 401) unless authenticated
