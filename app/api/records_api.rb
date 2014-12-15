@@ -1,10 +1,5 @@
 class Records_API < Grape::API
   resource 'records' do
-    desc "return all records"
-    get do
-      Record.all
-    end
-
     params do
       requires :point_id, type: Integer
       requires :movement_id, type: Integer

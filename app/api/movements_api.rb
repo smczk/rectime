@@ -2,7 +2,7 @@ class Movements_API < Grape::API
 
   resource 'movements' do
     
-    desc "return all movements"
+    desc "return user's movements"
     get do
       Movement.where({ user_id: current_user })
         .as_json(include: { record: { include: { point: { only: :name }}, only: [:comment, :updated_at] }}, root: true) 
@@ -12,27 +12,13 @@ class Movements_API < Grape::API
       Movement.update(params[:id],{ completed: true })
     end
 
-    params do
-      requires :user_id, type: Integer
-    end
-    desc "return a movement"
-    get ':user_id' do
-      Movement.where({ user_id: params[:user_id] })
-    end
-
-    namespace ":user_id" do
-      get 'latest' do
-        Movement.where({ user_id: params[:user_id], completed: false })
-      end
+    get 'latest' do
+      Movement.where({ user_id: current_user, completed: false })
     end
 
     desc "create movement"
-    params do
-      requires :user_id, type: Integer
-    end
-
     post do
-      Movement.create!({ user_id: params[:user_id] })
+      Movement.create!({ user_id: current_user })
     end
   end
 end
