@@ -18,7 +18,7 @@ class Movements_API < Grape::API
 
     desc "create movement"
     post do
-      Movement.create!({ user_id: current_user })
+      Movement.create!({ user_id: current_user.id })
     end
   end
 end
