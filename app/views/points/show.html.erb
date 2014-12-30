@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Rectime</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-#  <%= csrf_meta_tags %>
-</head>
-<body>
-
 <table>
   <tr>
     <td>id</td>
@@ -15,13 +5,10 @@
     <td>register date</td>
   </tr>
 <% @points.each do |point| %>
-  <tr>    
+  <tr>
     <td><%= "#{point.id}" %></td>
     <td><%= "#{point.name}" %></td>
     <td><%= "#{point.created_at}" %></td>
   </tr>
 <% end %>
 </table>
-
-</body>
-</html>
